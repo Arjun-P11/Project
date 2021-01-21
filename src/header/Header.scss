@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+.image {
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0 auto;
+  display: fill;
+  filter: opacity(42%);
+  filter: grayscale(100%);
+}
+
+.box {
+  display: grid;
+  position: relative;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.box .btn {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  background-image: url("../designs/down-chevron.svg");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+}
+
+.box .heading {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 55px;
+  font-family: "Lato", sans-serif;
+  // -ms-transform: translate(-50%, -50%);
+}
+
+.box .subtext {
+  position: absolute;
+  top: 8%;
+  left: 8%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: "Lato", sans-serif;
+  // -ms-transform: translate(-50%, -50%);
+}

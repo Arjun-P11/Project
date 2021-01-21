@@ -1,10 +1,7 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, useEffect } from "react";
 import "./App.scss";
-import Header from "./Header.js";
-import Form from "./Form.js";
-
-// maybe render header by default unclosed
-// when down chevron clicked, change state? and show search menu and close footer
+import Header from "./header/Header.js";
+import Form from "./form/Form.js";
 
 class App extends Component {
   render() {
@@ -13,10 +10,15 @@ class App extends Component {
 }
 
 function Display() {
-  const [state, setState] = useState(true);
+  const [form, setForm] = useState(false);
+
+  useEffect(() => {
+    console.log(form);
+  });
+
   return (
     <div>
-      <Header onClick="" />
+      <Header onClick={setForm} />
       <Form />
     </div>
   );
