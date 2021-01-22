@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "./Mission.scss";
-import { sampleData } from "../sampleData.js";
 
-export default function Mission() {
-  console.log(sampleData[0]);
-  const patch = sampleData[5].links.mission_patch;
-  const rocket_name = sampleData[0].rocket.rocket_name;
-  const payload_id = sampleData[0].payloads[0].payload_id;
+export default function Mission(props) {
+  const data = props.data;
+  const patch = data.links.mission_patch;
+  const rocket_name = data.rocket.rocket_name;
+  const payload_id = data.payloads[0].payload_id;
   const title = `${rocket_name} - ${payload_id}`;
 
-  const launchSite = sampleData[0].launch_site.site_name;
+  const launchSite = data.launch_site.site_name;
 
-  const date = new Date(sampleData[0].launch_date_local);
+  const date = new Date(data.launch_date_local);
   const month = date.toLocaleString("default", { month: "long" });
   const dateStr = `${date.getDate()} ${month} ${date.getFullYear()}`;
   let [hour, minute, second] = date.toLocaleTimeString("en-US").split(/:| /);
@@ -25,16 +24,12 @@ export default function Mission() {
 
   const missionInfo = `Launched on ${dateStr}  at  ${timeStr}  from  ${launchSite}`;
 
-  console.log(dateStr);
-  console.log(timeStr);
-  console.log(patch);
-
-  const flightNumber = sampleData[0].flight_number;
+  const flightNumber = data.flight_number;
 
   return (
     <div>
       <div className="mission-container">
-        <img id="image-mission" src={patch} alt="Header - Space" />
+        <img id="image-mission" src={patch} alt="Mission Patch" />
         <div id="mission-content">
           <div className="firstline">{title}</div>
           <div className="secondline">{missionInfo}</div>
