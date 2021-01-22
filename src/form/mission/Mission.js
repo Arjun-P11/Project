@@ -9,7 +9,7 @@ export default function Mission() {
   const payload_id = sampleData[0].payloads[0].payload_id;
   const title = `${rocket_name} - ${payload_id}`;
 
-  const lauchSite = sampleData[0].launch_site.site_name;
+  const launchSite = sampleData[0].launch_site.site_name;
 
   const date = new Date(sampleData[0].launch_date_local);
   const month = date.toLocaleString("default", { month: "long" });
@@ -23,6 +23,8 @@ export default function Mission() {
   }
   const timeStr = `${hour}:${minute}`;
 
+  const missionInfo = `Launched on ${dateStr}  at  ${timeStr}  from  ${launchSite}`;
+
   console.log(dateStr);
   console.log(timeStr);
   console.log(patch);
@@ -31,10 +33,16 @@ export default function Mission() {
 
   return (
     <div>
-      <div className="container">
-        <img className="image-mission" src={patch} alt="Header - Space" />
-        <div>Mission Element</div>
-        <div>Mission Element</div>
+      <div className="mission-container">
+        <img id="image-mission" src={patch} alt="Header - Space" />
+        <div id="mission-content">
+          <div className="firstline">{title}</div>
+          <div className="secondline">{missionInfo}</div>
+        </div>
+        <div id="number-container">
+          <div className="firstline">{`#${flightNumber}`}</div>
+          <div className="secondline">Flight Number</div>
+        </div>
       </div>
     </div>
   );
