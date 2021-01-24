@@ -1,7 +1,7 @@
-import React, { Component, useState, useEffect } from "react";
-import "./App.scss";
+import React, { Component, useState, useEffect, useRef } from "react";
 import Header from "./header/Header.js";
 import Form from "./form/Form.js";
+import "./App.scss";
 
 class App extends Component {
   render() {

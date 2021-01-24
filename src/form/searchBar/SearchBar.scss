@@ -6,17 +6,20 @@ label {
 }
 
 input {
-  height: 5ch;
+  height: 5.5ch;
   font-family: "Lato", sans-serif;
   border: 1px solid;
   border-color: lightgrey;
   padding-left: 2ch;
+  color: gray;
 }
 
 ::placeholder {
-  color: black;
+  color: gray;
   padding-left: 1ch;
 }
+
+// temp comment
 
 select {
   height: 6ch;
@@ -25,16 +28,16 @@ select {
   padding: 1ch;
   font-family: "Lato", sans-serif;
   background-color: white;
+  color: gray;
 }
 
 .container {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
+  flex-flow: row wrap;
   background-color: #ededed;
   padding: 15px;
   font-family: "Lato", sans-serif;
+  justify-content: space-around;
 }
 
 #keywords-container {
@@ -42,7 +45,7 @@ select {
   flex-direction: column;
   position: relative;
   width: 25%;
-  justify-content: left;
+  align-content: flex-start;
 }
 
 #launch-container {
@@ -50,7 +53,6 @@ select {
   flex-direction: column;
   position: relative;
   width: 25%;
-  justify-content: left;
 }
 
 #min-container {
@@ -58,7 +60,6 @@ select {
   flex-direction: column;
   position: relative;
   width: 15%;
-  justify-content: left;
 }
 
 #max-container {
@@ -66,7 +67,6 @@ select {
   flex-direction: column;
   position: relative;
   width: 15%;
-  justify-content: left;
 }
 
 #apply-btn-container {
@@ -75,11 +75,11 @@ select {
   position: relative;
   width: 10%;
   justify-content: space-between;
-  padding-top: 1.3%;
+  padding-top: 1.9%;
 }
 
 #apply-btn {
-  height: 5ch;
+  height: 5.3ch;
   width: 100px;
   font-family: "Lato", sans-serif;
   font-size: 15px;

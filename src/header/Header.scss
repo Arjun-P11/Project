@@ -1,21 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
-.image {
-  height: 100%;
-  width: 100%;
-  max-width: 100%;
-  max-height: 100%;
-  margin: 0 auto;
-  display: fill;
-  filter: opacity(42%);
-  filter: grayscale(100%);
-}
-
 .box {
   display: grid;
   position: relative;
-  max-height: 85%;
+}
+
+.box .image {
+  width: 100%;
   max-width: 100%;
+  max-height: 100vh;
+  margin: auto;
+  object-fit: fill;
+  filter: opacity(42%);
+  filter: grayscale(0%);
 }
 
 .box .btn {
@@ -24,13 +21,14 @@
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  background-color: white;
+  max-width: 100%;
+  height: auto;
+  background-color: transparent;
   padding: 12px 24px;
   border: none;
-  border-radius: 5px;
-  background-image: url("../designs/down-chevron.svg");
+  background-image: url("../designs/white_chevron.svg");
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: 100%;
   background-position: center;
 }
 
