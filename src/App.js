@@ -9,19 +9,24 @@ class App extends Component {
   }
 }
 
-function Display() {
-  const [form, setForm] = useState(false);
+const Display = () => {
+  const formRef = useRef();
 
   useEffect(() => {
-    console.log(form);
+    console.log(formRef);
   });
 
+  const scrollClick = () => {
+    formRef.current.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <div>
-      <Header onClick={setForm} />
-      <Form />
+      <Header onClick={scrollClick} />
+      <div ref={formRef}>
+        <Form />
+      </div>
     </div>
   );
-}
+};
 
 export default App;

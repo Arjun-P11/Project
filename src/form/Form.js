@@ -1,9 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, forwardRef } from "react";
 import SearchBar from "./searchBar/SearchBar.js";
 import Mission from "./missionItem/MissionItem.js";
 import Results from "./numResults/Results.js";
 import "./form.scss";
 import { sampleData } from "./sampleData.js";
+import { launchPads } from "./LaunchPads.js";
+
+// can later store name -> id in a map to be efficient
+function getLaunchId(launchName) {
+  for (let launchPad of launchPads) {
+    if (launchPad.full_name === launchName) {
+      return launchPad.id;
+    }
+  }
+  return "Launch Site not Identified";
+}
 
 function Form() {
   const [form, setForm] = useState({
@@ -35,17 +46,40 @@ function Form() {
       }
       return false;
     };
+    const filterLaunchPad = (data) => {
+      if (search.launch === "Any") {
+        return true;
+      }
+      const launchId = getLaunchId(search.launch);
+      console.log(launchId);
+      return data.launch_site.site_id === launchId;
+    };
 
-    if (!keyword || keyword === "all") {
-      setData(sampleData);
-    } else {
-      setData(
-        sampleData.filter(
-          (data) =>
-            filterRocket(data) || filterFlightNo(data) || filterPayloadId(data)
-        )
-      );
-    }
+    const filterMinYear = (data) => {
+      const date = new Date(data.launch_date_local);
+      const year = `${date.getFullYear()}`;
+      return year >= search.min;
+    };
+
+    const filterMaxYear = (data) => {
+      const date = new Date(data.launch_date_local);
+      const year = `${date.getFullYear()}`;
+      return year <= search.max;
+    };
+
+    setData(
+      sampleData.filter(
+        (data) =>
+          (keyword === "all" || !keyword
+            ? true
+            : filterRocket(data) ||
+              filterFlightNo(data) ||
+              filterPayloadId(data)) &&
+          filterLaunchPad(data) &&
+          filterMinYear(data) &&
+          filterMaxYear(data)
+      )
+    );
   };
 
   return (
