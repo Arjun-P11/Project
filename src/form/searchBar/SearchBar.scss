@@ -1,89 +1,101 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
 label {
-  padding-bottom: 5px;
+  padding-bottom: 1vh;
   font-family: "Lato", sans-serif;
 }
 
 input {
-  height: 5.5ch;
+  height: 4vh;
   font-family: "Lato", sans-serif;
-  border: 1px solid;
+  border: 0.1vh solid;
   border-color: lightgrey;
-  padding-left: 2ch;
-  color: gray;
+  padding-left: 0.5vw;
+  color: #5a6066;
 }
 
 ::placeholder {
-  color: gray;
-  padding-left: 1ch;
+  color: #bcbcbc;
 }
 
-// temp comment
-
 select {
-  height: 6ch;
+  height: 4.5vh;
   border-color: lightgrey;
-  border-radius: 0ch;
-  padding: 1ch;
+  padding: 0.5vw;
   font-family: "Lato", sans-serif;
   background-color: white;
-  color: gray;
+  color: #5a6066;
 }
 
 .container {
   display: flex;
   flex-flow: row wrap;
-  background-color: #ededed;
-  padding: 15px;
+  background-color: #f9fafa;
+  padding: 1vh 0.7vw 1.5vh 0.7vw;
   font-family: "Lato", sans-serif;
   justify-content: space-around;
-}
+  // border: 1ch;
+  // border-color: #d5d9de;
+  border-bottom: 0.1vh solid #d5d9de;
 
-#keywords-container {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 25%;
-  align-content: flex-start;
-}
+  label {
+    color: #5a6066;
+  }
 
-#launch-container {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 25%;
-}
-
-#min-container {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 15%;
-}
-
-#max-container {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 15%;
-}
-
-#apply-btn-container {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 10%;
-  justify-content: space-between;
-  padding-top: 1.9%;
-}
-
-#apply-btn {
-  height: 5.3ch;
-  width: 100px;
-  font-family: "Lato", sans-serif;
-  font-size: 15px;
-  color: white;
-  border: none;
-  background-color: mediumaquamarine;
+  #keywords-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 26%;
+    #keywords-label {
+      display: flex;
+      align-content: flex-start;
+    }
+  }
+  #launch-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 26%;
+    #launch-label {
+      display: flex;
+      align-content: flex-start;
+    }
+  }
+  #min-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 16%;
+    #min-label {
+      display: flex;
+      align-content: flex-start;
+    }
+  }
+  #max-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 16%;
+    #max-label {
+      display: flex;
+      align-content: flex-start;
+    }
+  }
+  #apply-btn-container {
+    display: flex;
+    position: relative;
+    width: 6%;
+    justify-content: center;
+    padding-top: 2.9vh;
+    #apply-btn {
+      height: 4.5vh;
+      width: 100px;
+      font-family: "Lato", sans-serif;
+      font-size: 1.5vh;
+      color: white;
+      border: none;
+      background-color: #1fbba6;
+    }
+  }
 }

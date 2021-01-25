@@ -1,3 +1,9 @@
 html {
   scroll-behavior: smooth;
 }
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #eaedf1;
+}

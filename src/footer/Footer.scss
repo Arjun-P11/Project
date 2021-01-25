@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+.footer {
+  display: flex;
+  flex-flow: row wrap;
+  font-family: "Lato", sans-serif;
+  justify-content: space-around;
+  padding-left: 4vw;
+  padding-right: 4vw;
+  padding-bottom: 2vw;
+  #copyright {
+    display: flex;
+    position: relative;
+    width: 50%;
+    align-content: flex-start;
+    color: #c8cfd2;
+  }
+  #toTop {
+    display: flex;
+    position: relative;
+    width: 50%;
+    justify-content: flex-end;
+    text-decoration: underline;
+    color: #70777b;
+  }
+}

@@ -53,18 +53,18 @@ function SearchBar(props) {
   return (
     <form className="container">
       <div id="keywords-container">
-        <label htmlFor="keywords">Name</label>
+        <label id="keywords-label">Keywords</label>
         <input
           id="keywords"
           type="text"
-          placeholder="eg. falcon"
+          placeholder="eg. Falcon"
           onChange={(val) =>
             setSearch({ ...search, keyword: val.target.value })
           }
         />
       </div>
       <div id="launch-container">
-        <label htmlFor="launch">Launch Pad</label>
+        <label id="launch-label">Launch Pad</label>
         <select
           id="launch"
           onChange={(val) =>
@@ -83,7 +83,7 @@ function SearchBar(props) {
         </select>
       </div>
       <div id="min-container">
-        <label htmlFor="minYear">Min Year</label>
+        <label id="min-label">Min Year</label>
         <select
           id="minYear"
           onChange={(val) => {
@@ -99,7 +99,7 @@ function SearchBar(props) {
         </select>
       </div>
       <div id="max-container">
-        <label htmlFor="maxYear">Max Year</label>
+        <label id="max-label">Max Year</label>
         <select
           id="maxYear"
           onChange={(val) => {

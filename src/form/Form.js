@@ -2,6 +2,7 @@ import React, { useState, forwardRef } from "react";
 import SearchBar from "./searchBar/SearchBar.js";
 import Mission from "./missionItem/MissionItem.js";
 import Results from "./numResults/Results.js";
+import Footer from "../footer/Footer.js";
 import "./form.scss";
 import { sampleData } from "./sampleData.js";
 import { launchPads } from "./LaunchPads.js";
