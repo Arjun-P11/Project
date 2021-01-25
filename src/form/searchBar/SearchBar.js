@@ -37,6 +37,19 @@ function SearchBar(props) {
   //   props.setForm(search);
   // });
 
+  const checkValid = () => {
+    console.log(SearchBar);
+    if (search.min !== "Any" && search.max !== "Any") {
+      if (search.min > search.max) {
+        alert(
+          "Error: Minimum launch year cannot be greater than maximum launch year"
+        );
+        return false;
+      }
+    }
+    return true;
+  };
+
   return (
     <form className="container">
       <div id="keywords-container">
@@ -73,12 +86,9 @@ function SearchBar(props) {
         <label htmlFor="minYear">Min Year</label>
         <select
           id="minYear"
-          onChange={(val) =>
-            setSearch({
-              ...search,
-              min: val.target.value,
-            })
-          }
+          onChange={(val) => {
+            setSearch({ ...search, min: val.target.value });
+          }}
         >
           <option value="Any">Any</option>
           {years.map((year, index) => (
@@ -92,12 +102,9 @@ function SearchBar(props) {
         <label htmlFor="maxYear">Max Year</label>
         <select
           id="maxYear"
-          onChange={(val) =>
-            setSearch({
-              ...search,
-              max: val.target.value,
-            })
-          }
+          onChange={(val) => {
+            setSearch({ ...search, max: val.target.value });
+          }}
         >
           <option value="Any">Any</option>
           {years.map((year, index) => (
@@ -111,7 +118,11 @@ function SearchBar(props) {
         <button
           id="apply-btn"
           type="button"
-          onClick={() => props.onSubmit(search)}
+          onClick={() => {
+            if (checkValid()) {
+              props.onSubmit(search);
+            }
+          }}
         >
           Apply
         </button>

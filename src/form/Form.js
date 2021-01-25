@@ -56,12 +56,18 @@ function Form() {
     };
 
     const filterMinYear = (data) => {
+      if (search.min === "Any") {
+        return true;
+      }
       const date = new Date(data.launch_date_local);
       const year = `${date.getFullYear()}`;
       return year >= search.min;
     };
 
     const filterMaxYear = (data) => {
+      if (search.max === "Any") {
+        return true;
+      }
       const date = new Date(data.launch_date_local);
       const year = `${date.getFullYear()}`;
       return year <= search.max;
