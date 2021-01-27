@@ -21,7 +21,7 @@ input {
 select {
   height: 4.5vh;
   border-color: lightgrey;
-  padding: 0.5vw;
+  padding-left: 0.5vw;
   font-family: "Lato", sans-serif;
   background-color: white;
   color: #5a6066;
@@ -31,7 +31,7 @@ select {
   display: flex;
   flex-flow: row wrap;
   background-color: #f9fafa;
-  padding: 1vh 0.7vw 1.5vh 0.7vw;
+  padding: 1.5vh 0.7vw 2vh 0.7vw;
   font-family: "Lato", sans-serif;
   justify-content: space-around;
   // border: 1ch;
@@ -87,12 +87,12 @@ select {
     position: relative;
     width: 6%;
     justify-content: center;
-    padding-top: 2.9vh;
+    padding-top: 2%;
     #apply-btn {
       height: 4.5vh;
       width: 100px;
       font-family: "Lato", sans-serif;
-      font-size: 1.5vh;
+      font-size: 80%;
       color: white;
       border: none;
       background-color: #1fbba6;

@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect, useRef } from "react";
+import React, { Component, useRef } from "react";
 import Header from "./header/Header.js";
 
 import Footer from "./footer/Footer.js";
@@ -13,10 +13,6 @@ class App extends Component {
 
 const Display = () => {
   const formRef = useRef();
-
-  useEffect(() => {
-    console.log(formRef);
-  });
 
   const scrollClick = () => {
     formRef.current.scrollIntoView({ behavior: "smooth" });

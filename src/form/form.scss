@@ -1,9 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
 .Form {
   text-align: center;
   margin-top: 2vw;
   margin-left: 4vw;
   margin-right: 4vw;
   margin-bottom: 2vw;
+
+  #loading {
+    font-family: "Lato", sans-serif;
+    background-color: #f9fafa;
+    padding: 5%;
+  }
 }
 
 .div {

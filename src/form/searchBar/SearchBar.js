@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./SearchBar.scss";
-import { sampleData } from "../sampleData.js";
 import { launchPads } from "../LaunchPads.js";
 
 function getLaunchPads() {
@@ -11,9 +10,9 @@ function getLaunchPads() {
   return launchPadNames;
 }
 
-function getLaunchYears() {
+function getLaunchYears(data) {
   let years = [];
-  for (let launch of sampleData) {
+  for (let launch of data) {
     const date = new Date(launch.launch_date_local);
     const year = date.getFullYear();
     if (years.indexOf(year) === -1) {
@@ -30,8 +29,9 @@ function SearchBar(props) {
     min: "Any",
     max: "Any",
   });
+  const data = props.data;
   const launchPadNames = getLaunchPads();
-  const years = getLaunchYears();
+  const years = getLaunchYears(data);
 
   // useEffect(() => {
   //   props.setForm(search);
