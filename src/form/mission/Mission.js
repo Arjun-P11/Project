@@ -1,8 +1,9 @@
-import React from "react";
-import "./MissionItem.scss";
-import { launchPads } from "../LaunchPads.js";
+import React, { useState } from "react";
+import "./Mission.scss";
+import Button from "./Button.js";
 
-function getLaunchName(launchId) {
+// refactor to get this from fetch
+function getLaunchName(launchId, launchPads) {
   for (let launchPad of launchPads) {
     if (launchPad.id === launchId) {
       return launchPad.full_name;
@@ -25,16 +26,46 @@ function getDateString(date) {
   return `${date.getDate()} ${month} ${date.getFullYear()}`;
 }
 
+function getButtons(launch) {
+  const buttons = [];
+  const buttonMap = {
+    reddit_campaign: "Reddit Campaign",
+    reddit_launch: "Reddit Launch",
+    reddit_recovery: "Reddit Recovery",
+    reddit_media: "Reddit Media",
+    presskit: "Presskit",
+    article_link: "Article",
+    video_link: "Watch Video",
+  };
+  for (let link in launch.links) {
+    if (link !== "mission_patch" && launch.links[link]) {
+      buttons.push({
+        name: `${buttonMap[link]}`,
+        link: `${launch.links[link]}`,
+      });
+    }
+  }
+  return buttons;
+}
+
 export default function Mission(props) {
   const data = props.data;
   const patch = data.links.mission_patch;
+  const buttons = getButtons(data);
 
   const rocket_name = data.rocket.rocket_name;
   // Assume payload_id refers to first payload !!!
   const payload_id = data.payloads[0].payload_id;
   const title = `${rocket_name} - ${payload_id}`;
 
-  const launchSiteName = getLaunchName(data.launch_site.site_id);
+  const launchSiteName = getLaunchName(
+    data.launch_site.site_id,
+    props.launchpads
+  );
+
+  const onError = (e) => {
+    e.target.style.visibility = "hidden";
+  };
 
   const date = new Date(data.launch_date_local);
   const dateStr = getDateString(date);
@@ -51,14 +82,24 @@ export default function Mission(props) {
   return (
     <div>
       <div className="mission-container">
-        <img id="image-mission" src={patch} alt="Mission Patch" />
+        <img
+          id="image-mission"
+          src={patch}
+          onError={onError}
+          alt="Mission Patch"
+        />
         <div id="mission-content">
           <p>
             <span className="firstline">{title}</span>
             {failedMission && <span> - </span>}
-            {failedMission && <span className="failed"> Failed Mission </span>}
+            {failedMission && <span className="failed">Failed Mission</span>}
           </p>
           <div className="secondline">{missionInfo}</div>
+          <div className="mission-btn-container">
+            {buttons.map((button, index) => (
+              <Button key={index} button={button} />
+            ))}
+          </div>
         </div>
         <div id="number-container">
           <div className="firstline">{`#${flightNumber}`}</div>

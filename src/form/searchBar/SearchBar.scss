@@ -1,13 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
 label {
-  padding-bottom: 1vh;
+  padding-bottom: 1ch;
   font-family: "Lato", sans-serif;
 }
 
 input {
-  height: 4vh;
-  font-family: "Lato", sans-serif;
+  height: 5ch;
+  font-size: 90%;
   border: 0.1vh solid;
   border-color: lightgrey;
   padding-left: 0.5vw;
@@ -19,10 +19,10 @@ input {
 }
 
 select {
-  height: 4.5vh;
+  height: 6ch;
+  font-size: 85%;
   border-color: lightgrey;
   padding-left: 0.5vw;
-  font-family: "Lato", sans-serif;
   background-color: white;
   color: #5a6066;
 }
@@ -31,11 +31,10 @@ select {
   display: flex;
   flex-flow: row wrap;
   background-color: #f9fafa;
-  padding: 1.5vh 0.7vw 2vh 0.7vw;
+  height: 8ch;
+  padding: 2ch 0.7vw 2ch 0.7vw;
   font-family: "Lato", sans-serif;
   justify-content: space-around;
-  // border: 1ch;
-  // border-color: #d5d9de;
   border-bottom: 0.1vh solid #d5d9de;
 
   label {
@@ -56,7 +55,7 @@ select {
     display: flex;
     flex-direction: column;
     position: relative;
-    width: 26%;
+    width: 30%;
     #launch-label {
       display: flex;
       align-content: flex-start;
@@ -66,7 +65,7 @@ select {
     display: flex;
     flex-direction: column;
     position: relative;
-    width: 16%;
+    width: 12%;
     #min-label {
       display: flex;
       align-content: flex-start;
@@ -76,7 +75,7 @@ select {
     display: flex;
     flex-direction: column;
     position: relative;
-    width: 16%;
+    width: 12%;
     #max-label {
       display: flex;
       align-content: flex-start;
@@ -85,14 +84,14 @@ select {
   #apply-btn-container {
     display: flex;
     position: relative;
-    width: 6%;
-    justify-content: center;
-    padding-top: 2%;
+    width: 8%;
+    align-items: flex-end;
+    // padding-top: 2%;
+    margin-top: 2.6ch;
     #apply-btn {
-      height: 4.5vh;
-      width: 100px;
-      font-family: "Lato", sans-serif;
-      font-size: 80%;
+      height: 90%;
+      width: 100%;
+      font-size: 95%;
       color: white;
       border: none;
       background-color: #1fbba6;

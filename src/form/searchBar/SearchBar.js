@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import "./SearchBar.scss";
-import { launchPads } from "../LaunchPads.js";
 
-function getLaunchPads() {
+const getLaunchPadFullNames = (launchPads) => {
   let launchPadNames = [];
   for (let launchPad of launchPads) {
     launchPadNames.push(launchPad.full_name);
   }
   return launchPadNames;
-}
-
-function getLaunchYears(data) {
+};
+const getLaunchYears = (data) => {
   let years = [];
   for (let launch of data) {
     const date = new Date(launch.launch_date_local);
@@ -20,7 +18,7 @@ function getLaunchYears(data) {
     }
   }
   return years.sort();
-}
+};
 
 function SearchBar(props) {
   const [search, setSearch] = useState({
@@ -29,16 +27,12 @@ function SearchBar(props) {
     min: "Any",
     max: "Any",
   });
-  const data = props.data;
-  const launchPadNames = getLaunchPads();
-  const years = getLaunchYears(data);
-
-  // useEffect(() => {
-  //   props.setForm(search);
-  // });
+  const apiData = props.apiData;
+  const launchPadNames = getLaunchPadFullNames(props.launchpads);
+  const years = getLaunchYears(apiData);
 
   const checkValid = () => {
-    console.log(SearchBar);
+    console.log(search);
     if (search.min !== "Any" && search.max !== "Any") {
       if (search.min > search.max) {
         alert(
@@ -73,6 +67,7 @@ function SearchBar(props) {
               launch: val.target.value,
             })
           }
+          value={search.launch}
         >
           <option value="Any">Any</option>
           {launchPadNames.map((site, index) => (
@@ -87,8 +82,10 @@ function SearchBar(props) {
         <select
           id="minYear"
           onChange={(val) => {
+            console.log(val.target.value);
             setSearch({ ...search, min: val.target.value });
           }}
+          value={search.min}
         >
           <option value="Any">Any</option>
           {years.map((year, index) => (
@@ -103,8 +100,10 @@ function SearchBar(props) {
         <select
           id="maxYear"
           onChange={(val) => {
+            console.log(val.target.value);
             setSearch({ ...search, max: val.target.value });
           }}
+          value={search.max}
         >
           <option value="Any">Any</option>
           {years.map((year, index) => (

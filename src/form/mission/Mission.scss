@@ -5,17 +5,15 @@
   flex-direction: row;
   align-items: flex-start;
   background-color: #ffffff;
-  padding: px;
   font-family: Lato, sans-serif;
-  height: 15ch;
-  padding-top: 1vh;
+  padding-top: 1ch;
   border-bottom: 0.1vh solid #d5d9de;
 
   #image-mission {
-    height: 9ch;
-    width: 9ch;
-    padding-left: 1vw;
-    padding-top: 1vh;
+    height: 10ch;
+    width: 10ch;
+    padding-left: 2vw;
+    padding-top: 1ch;
     margin: 0;
   }
   #mission-content {
@@ -23,26 +21,35 @@
     flex-direction: column;
     position: relative;
     width: 79%;
-    justify-content: left;
+    justify-content: space-around;
     align-items: flex-start;
     padding-left: 3vw;
+    .mission-btn-container {
+      display: flex;
+      flex-direction: row;
+      background-color: #ffffff;
+      width: 100%;
+      padding-top: 5ch;
+      padding-bottom: 3ch;
+    }
   }
   #number-container {
-    padding-top: 1vh;
+    padding-top: 3ch;
     flex-direction: column;
     position: relative;
-    width: 10%;
+    width: 15%;
   }
 }
 
 .firstline {
-  padding-bottom: 1vw;
+  padding-bottom: 1ch;
+  text-align: left;
   font-size: large;
 }
 
 .secondline {
-  padding-bottom: 1vw;
-  color: grey;
+  color: #7b8b8e;
+  text-align: left;
 }
 
 .failed {
