@@ -1,9 +1,7 @@
 .search-container {
   display: flex;
-  flex-flow: row wrap;
   background-color: #f9fafa;
-  //height: 8ch;
-  padding: 2ch 0.7vw 2ch 0.7vw;
+  padding: 2.5ch 0.7vw 2ch 0.7vw;
 
   justify-content: space-around;
   border-bottom: 0.1vh solid #d5d9de;
@@ -27,10 +25,11 @@
   select {
     height: 6ch;
     font-size: 85%;
-    border-color: lightgrey;
+    border: 0.1vh solid lightgrey;
     padding-left: 0.5vw;
     background-color: white;
     color: #5a6066;
+    //-webkit-appearance: none;
   }
   .container {
     display: flex;
@@ -82,84 +81,26 @@
 //   position: relative;
 // }
 
-// refactor to remove duplication
 @media screen and (max-width: 700px) {
   .search-container {
-    display: flex;
     flex-flow: row wrap;
-    background-color: #f9fafa;
-    padding: 2ch 0.7vw 2ch 0.7vw;
-    border-bottom: 0.1vh solid #d5d9de;
-
-    label {
-      color: #5a6066;
-      padding-bottom: 1ch;
-    }
-    input {
-      height: 5ch;
-      font-size: 90%;
-      border: 0.1vh solid;
-      border-color: lightgrey;
-      padding-left: 0.5vw;
-      color: #5a6066;
-    }
-    ::placeholder {
-      color: #bcbcbc;
-    }
-
-    select {
-      height: 6ch;
-      font-size: 85%;
-      border-color: lightgrey;
-      padding-left: 0.5vw;
-      background-color: white;
-      color: #5a6066;
-    }
-    .search-label {
-      display: flex;
-      align-content: flex-start;
-    }
 
     .container-keywords {
-      display: flex;
-      flex-direction: column;
-      position: relative;
       width: 90%;
       padding-bottom: 1ch;
     }
     .container-launch {
-      display: flex;
-      flex-direction: column;
-      position: relative;
       width: 90%;
       padding-bottom: 1ch;
     }
     .container-min {
-      display: flex;
-      flex-direction: column;
-      position: relative;
       width: 25%;
     }
     .container-max {
-      display: flex;
-      flex-direction: column;
-      position: relative;
       width: 25%;
     }
     #apply-btn-container {
-      display: flex;
-      position: relative;
       width: 20%;
-      align-items: flex-end;
-      margin-top: 2.6ch;
-      #apply-btn {
-        height: 90%;
-        width: 100%;
-        font-size: 95%;
-        color: white;
-        border: none;
-        background-color: #1fbba6;
-      }
     }
   }
 }

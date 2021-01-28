@@ -35,12 +35,27 @@
     }
   }
   .number-container {
-    // padding-top: 3ch;
-    // padding-right: 1ch;
     padding: 2ch 1ch 0 1ch;
     flex-direction: column;
     position: relative;
     width: 15%;
+  }
+  @media screen and (max-width: 700px) {
+    .image-mission {
+      padding-left: 1ch;
+      height: 9ch;
+      width: 9ch;
+    }
+    .mission-content {
+      padding-left: 1ch;
+      .mission-btn-container {
+        padding-top: 3ch;
+        padding-bottom: 1.5ch;
+      }
+    }
+    .number-container {
+      margin-right: 1ch;
+    }
   }
   .firstline {
     padding-bottom: 1ch;

@@ -1,4 +1,4 @@
-[
+export const launches = [
   {
     flight_number: 1,
     launch_date_local: "2006-03-25T10:30:00+12:00",

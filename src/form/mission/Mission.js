@@ -51,6 +51,7 @@ function getButtons(launch) {
 export default function Mission(props) {
   const data = props.data;
   const patch = data.links.mission_patch;
+  console.log(patch);
   const buttons = getButtons(data);
 
   const rocket_name = data.rocket.rocket_name;
@@ -64,7 +65,7 @@ export default function Mission(props) {
   );
 
   const onError = (e) => {
-    e.target.style.visibility = "hidden ";
+    //e.target.style.visibility = "hidden ";
   };
 
   const date = new Date(data.launch_date_local);
@@ -82,12 +83,7 @@ export default function Mission(props) {
   return (
     <div>
       <div className="mission-container">
-        <img
-          className="image-mission"
-          src={patch}
-          onError={onError}
-          alt="Mission Patch"
-        />
+        <img className="image-mission" src={patch} onError={onError} alt=" " />
         <div className="mission-content">
           <p>
             <span className="firstline-content">{title}</span>

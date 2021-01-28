@@ -4,6 +4,8 @@ import Mission from "./mission/Mission.js";
 import Results from "./numResults/Results.js";
 import GetData from "./GetData.js";
 import "./form.scss";
+import { launches } from "./Launches.js";
+import { launchPads } from "./LaunchPads.js";
 
 // can later store name -> id in a map to be efficient
 function getLaunchId(launchpads, launchName) {
@@ -75,29 +77,47 @@ const filterData = (search, data, launchpadData) => {
 
 function Form() {
   // apiData keeps a copy of the original data from the api call
-  const [apiData, setApiData] = useState({ status: "not set", data: [] });
+  const [apiData, setApiData] = useState({
+    status: "success",
+    data: launches,
+  });
   // launchData contains the data for the list of missions to display on search
   const [launchData, setLaunchData] = useState({
-    status: "not set",
-    data: [],
+    status: "success",
+    data: launches,
   });
   const [launchpadData, setLaunchpadData] = useState({
-    status: "not set",
-    data: [],
+    status: "success",
+    data: launchPads,
   });
 
-  useEffect(() => {
-    async function getData() {
-      // get launch data
-      const launches = await GetData("launches");
-      setLaunchData(launches);
-      setApiData(launches);
-      // get launchpad data
-      const launchpads = await GetData("launchpads");
-      setLaunchpadData(launchpads);
-    }
-    getData();
-  }, []);
+  console.log(launches);
+  console.log(launchPads);
+
+  // // apiData keeps a copy of the original data from the api call
+  // const [apiData, setApiData] = useState({ status: "not set", data: [] });
+  // // launchData contains the data for the list of missions to display on search
+  // const [launchData, setLaunchData] = useState({
+  //   status: "not set",
+  //   data: [],
+  // });
+  // const [launchpadData, setLaunchpadData] = useState({
+  //   status: "not set",
+  //   data: [],
+  // });
+
+  // useEffect(() => {
+  //   async function getData() {
+  //     // get launch data
+  //     const launches = await GetData("launches");
+  //     setLaunchData(launches);
+  //     setApiData(launches);
+  //     // get launchpad data
+  //     const launchpads = await GetData("launchpads");
+  //     setLaunchpadData(launchpads);
+  //   }
+  //   getData();
+  // }, []);
 
   // search flightnumbers, rocket name, payload id
   const onSubmit = (search) => {

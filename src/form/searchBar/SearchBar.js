@@ -48,7 +48,9 @@ function SearchBar(props) {
   return (
     <form className="search-container">
       <div className="container-keywords">
-        <label className="search-label">Keywords</label>
+        <label for="keywords" className="search-label">
+          Keywords
+        </label>
         <input
           id="keywords"
           type="text"
@@ -59,7 +61,9 @@ function SearchBar(props) {
         />
       </div>
       <div className="container-launch">
-        <label className="search-label">Launch Pad</label>
+        <label for="launch" className="search-label">
+          Launch Pad
+        </label>
         <select
           id="launch"
           onChange={(val) =>
@@ -79,7 +83,9 @@ function SearchBar(props) {
         </select>
       </div>
       <div className="container-min">
-        <label className="search-label">Min Year</label>
+        <label for="minYear" className="search-label">
+          Min Year
+        </label>
         <select
           id="minYear"
           onChange={(val) => {
@@ -97,7 +103,9 @@ function SearchBar(props) {
         </select>
       </div>
       <div className="container-max">
-        <label className="search-label">Max Year</label>
+        <label for="maxYear" className="search-label">
+          Max Year
+        </label>
         <select
           id="maxYear"
           onChange={(val) => {
@@ -118,6 +126,7 @@ function SearchBar(props) {
         <button
           id="apply-btn"
           type="button"
+          aria-label="apply"
           onClick={() => {
             if (checkValid()) {
               props.onSubmit(search);
