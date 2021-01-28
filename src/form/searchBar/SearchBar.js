@@ -8,6 +8,7 @@ const getLaunchPadFullNames = (launchPads) => {
   }
   return launchPadNames;
 };
+
 const getLaunchYears = (data) => {
   let years = [];
   for (let launch of data) {
@@ -45,9 +46,9 @@ function SearchBar(props) {
   };
 
   return (
-    <form className="container">
-      <div id="keywords-container">
-        <label id="keywords-label">Keywords</label>
+    <form className="search-container">
+      <div className="container-keywords">
+        <label className="search-label">Keywords</label>
         <input
           id="keywords"
           type="text"
@@ -57,8 +58,8 @@ function SearchBar(props) {
           }
         />
       </div>
-      <div id="launch-container">
-        <label id="launch-label">Launch Pad</label>
+      <div className="container-launch">
+        <label className="search-label">Launch Pad</label>
         <select
           id="launch"
           onChange={(val) =>
@@ -77,8 +78,8 @@ function SearchBar(props) {
           ))}
         </select>
       </div>
-      <div id="min-container">
-        <label id="min-label">Min Year</label>
+      <div className="container-min">
+        <label className="search-label">Min Year</label>
         <select
           id="minYear"
           onChange={(val) => {
@@ -95,8 +96,8 @@ function SearchBar(props) {
           ))}
         </select>
       </div>
-      <div id="max-container">
-        <label id="max-label">Max Year</label>
+      <div className="container-max">
+        <label className="search-label">Max Year</label>
         <select
           id="maxYear"
           onChange={(val) => {

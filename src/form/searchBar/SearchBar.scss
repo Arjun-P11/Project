@@ -1,84 +1,63 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
-
-label {
-  padding-bottom: 1ch;
-  font-family: "Lato", sans-serif;
-}
-
-input {
-  height: 5ch;
-  font-size: 90%;
-  border: 0.1vh solid;
-  border-color: lightgrey;
-  padding-left: 0.5vw;
-  color: #5a6066;
-}
-
-::placeholder {
-  color: #bcbcbc;
-}
-
-select {
-  height: 6ch;
-  font-size: 85%;
-  border-color: lightgrey;
-  padding-left: 0.5vw;
-  background-color: white;
-  color: #5a6066;
-}
-
-.container {
+.search-container {
   display: flex;
   flex-flow: row wrap;
   background-color: #f9fafa;
   height: 8ch;
   padding: 2ch 0.7vw 2ch 0.7vw;
-  font-family: "Lato", sans-serif;
+
   justify-content: space-around;
   border-bottom: 0.1vh solid #d5d9de;
 
   label {
     color: #5a6066;
+    padding-bottom: 1ch;
+  }
+  input {
+    height: 5ch;
+    font-size: 90%;
+    border: 0.1vh solid;
+    border-color: lightgrey;
+    padding-left: 0.5vw;
+    color: #5a6066;
+  }
+  ::placeholder {
+    color: #bcbcbc;
   }
 
-  #keywords-container {
+  select {
+    height: 6ch;
+    font-size: 85%;
+    border-color: lightgrey;
+    padding-left: 0.5vw;
+    background-color: white;
+    color: #5a6066;
+  }
+
+  .container {
     display: flex;
     flex-direction: column;
     position: relative;
-    width: 26%;
-    #keywords-label {
+
+    .search-label {
       display: flex;
       align-content: flex-start;
     }
-  }
-  #launch-container {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    width: 30%;
-    #launch-label {
-      display: flex;
-      align-content: flex-start;
+
+    &-keywords {
+      @extend .container;
+      width: 26%;
     }
-  }
-  #min-container {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    width: 12%;
-    #min-label {
-      display: flex;
-      align-content: flex-start;
+    &-launch {
+      @extend .container;
+      width: 30%;
     }
-  }
-  #max-container {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    width: 12%;
-    #max-label {
-      display: flex;
-      align-content: flex-start;
+    &-min {
+      @extend .container;
+      width: 12%;
+    }
+    &-max {
+      @extend .container;
+      width: 12%;
     }
   }
   #apply-btn-container {
@@ -86,7 +65,6 @@ select {
     position: relative;
     width: 8%;
     align-items: flex-end;
-    // padding-top: 2%;
     margin-top: 2.6ch;
     #apply-btn {
       height: 90%;

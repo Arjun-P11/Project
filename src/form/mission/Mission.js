@@ -64,7 +64,7 @@ export default function Mission(props) {
   );
 
   const onError = (e) => {
-    e.target.style.visibility = "hidden";
+    e.target.style.visibility = "hidden ";
   };
 
   const date = new Date(data.launch_date_local);
@@ -83,25 +83,25 @@ export default function Mission(props) {
     <div>
       <div className="mission-container">
         <img
-          id="image-mission"
+          className="image-mission"
           src={patch}
           onError={onError}
           alt="Mission Patch"
         />
-        <div id="mission-content">
+        <div className="mission-content">
           <p>
-            <span className="firstline">{title}</span>
+            <span className="firstline-content">{title}</span>
             {failedMission && <span> - </span>}
             {failedMission && <span className="failed">Failed Mission</span>}
           </p>
-          <div className="secondline">{missionInfo}</div>
+          <div className="secondline-content">{missionInfo}</div>
           <div className="mission-btn-container">
             {buttons.map((button, index) => (
               <Button key={index} button={button} />
             ))}
           </div>
         </div>
-        <div id="number-container">
+        <div className="number-container">
           <div className="firstline">{`#${flightNumber}`}</div>
           <div className="secondline">Flight Number</div>
         </div>

@@ -1,22 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
-
 .mission-container {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   background-color: #ffffff;
-  font-family: Lato, sans-serif;
   padding-top: 1ch;
   border-bottom: 0.1vh solid #d5d9de;
 
-  #image-mission {
+  .image-mission {
     height: 10ch;
     width: 10ch;
     padding-left: 2vw;
     padding-top: 1ch;
     margin: 0;
   }
-  #mission-content {
+  .mission-content {
     display: flex;
     flex-direction: column;
     position: relative;
@@ -32,26 +29,29 @@
       padding-top: 5ch;
       padding-bottom: 3ch;
     }
+    .failed {
+      color: red;
+    }
   }
-  #number-container {
+  .number-container {
     padding-top: 3ch;
     flex-direction: column;
     position: relative;
     width: 15%;
   }
-}
-
-.firstline {
-  padding-bottom: 1ch;
-  text-align: left;
-  font-size: large;
-}
-
-.secondline {
-  color: #7b8b8e;
-  text-align: left;
-}
-
-.failed {
-  color: red;
+  .firstline {
+    padding-bottom: 1ch;
+    font-size: large;
+    &-content {
+      @extend .firstline;
+      text-align: left;
+    }
+  }
+  .secondline {
+    color: #7b8b8e;
+    &-content {
+      @extend .secondline;
+      text-align: left;
+    }
+  }
 }
