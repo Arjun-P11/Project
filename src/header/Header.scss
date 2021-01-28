@@ -40,15 +40,15 @@
     // height: 100vh;
     // line-height: 100vh;
     text-align: center;
-    font-size: 4vw;
+    font-size: calc(2.5vw + 1.3rem);
   }
 
   .subtext {
     position: absolute;
-    top: 8%;
-    left: 8%;
+    top: 5%;
+    left: 7.5%;
     transform: translate(-50%, -50%);
     color: white;
-    font-size: 1vw;
+    font-size: calc(0.7vw + 0.4rem);
   }
 }

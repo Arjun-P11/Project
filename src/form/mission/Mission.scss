@@ -9,7 +9,7 @@
   .image-mission {
     height: 10ch;
     width: 10ch;
-    padding-left: 2vw;
+    padding-left: 2ch;
     padding-top: 1ch;
     margin: 0;
   }
@@ -20,10 +20,10 @@
     width: 79%;
     justify-content: space-around;
     align-items: flex-start;
-    padding-left: 3vw;
+    padding-left: 2ch;
     .mission-btn-container {
       display: flex;
-      flex-direction: row;
+      flex-flow: row wrap;
       background-color: #ffffff;
       width: 100%;
       padding-top: 5ch;
@@ -31,24 +31,30 @@
     }
     .failed {
       color: red;
+      //font-size: calc(0.4vw + 0.7rem);
     }
   }
   .number-container {
-    padding-top: 3ch;
+    // padding-top: 3ch;
+    // padding-right: 1ch;
+    padding: 2ch 1ch 0 1ch;
     flex-direction: column;
     position: relative;
     width: 15%;
   }
   .firstline {
     padding-bottom: 1ch;
+    //font-size: calc(0.7vw + 0.7rem);
     font-size: large;
     &-content {
       @extend .firstline;
+      //font-size: calc(0.4vw + 0.7rem);
       text-align: left;
     }
   }
   .secondline {
     color: #7b8b8e;
+    //font-size: calc(0.3vw + 0.7rem);
     &-content {
       @extend .secondline;
       text-align: left;
