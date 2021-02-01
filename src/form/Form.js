@@ -124,7 +124,6 @@ function Form() {
       ...launchData,
       data: filterData(search, apiData.data, launchpadData.data),
     });
-    const data = apiData.data;
   };
 
   return (

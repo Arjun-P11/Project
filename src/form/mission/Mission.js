@@ -1,7 +1,5 @@
-import React, { useState } from "react";
-import { Link, Switch, Route } from "react-router-dom";
-import Home from "../../Home.js";
-import MissionInfo from "../../MissionInfo.js";
+import React from "react";
+import { Link } from "react-router-dom";
 import "./Mission.scss";
 import Button from "./Button.js";
 
@@ -88,8 +86,8 @@ export default function Mission(props) {
       <div className="mission-container">
         <Link
           to={{
-            // pathname: `/missionInfo/${flightNumber}`,
-            pathname: `/missionInfo`,
+            pathname: `/missionInfo/${flightNumber}`,
+            // pathname: `/missionInfo`,
             state: data,
           }}
         >

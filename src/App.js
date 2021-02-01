@@ -1,5 +1,5 @@
-import React, { Component, useRef } from "react";
-import { Link, Switch, Route } from "react-router-dom";
+import React, { Component } from "react";
+import { Switch, Route } from "react-router-dom";
 import Home from "./Home.js";
 import MissionInfo from "./MissionInfo.js";
 import "./App.scss";
