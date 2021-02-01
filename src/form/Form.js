@@ -77,47 +77,44 @@ const filterData = (search, data, launchpadData) => {
 
 function Form() {
   // apiData keeps a copy of the original data from the api call
-  const [apiData, setApiData] = useState({
-    status: "success",
-    data: launches,
-  });
-  // launchData contains the data for the list of missions to display on search
-  const [launchData, setLaunchData] = useState({
-    status: "success",
-    data: launches,
-  });
-  const [launchpadData, setLaunchpadData] = useState({
-    status: "success",
-    data: launchPads,
-  });
-
-  console.log(launches);
-  console.log(launchPads);
-
-  // // apiData keeps a copy of the original data from the api call
-  // const [apiData, setApiData] = useState({ status: "not set", data: [] });
+  // const [apiData, setApiData] = useState({
+  //   status: "success",
+  //   data: launches,
+  // });
   // // launchData contains the data for the list of missions to display on search
   // const [launchData, setLaunchData] = useState({
-  //   status: "not set",
-  //   data: [],
+  //   status: "success",
+  //   data: launches,
   // });
   // const [launchpadData, setLaunchpadData] = useState({
-  //   status: "not set",
-  //   data: [],
+  //   status: "success",
+  //   data: launchPads,
   // });
 
-  // useEffect(() => {
-  //   async function getData() {
-  //     // get launch data
-  //     const launches = await GetData("launches");
-  //     setLaunchData(launches);
-  //     setApiData(launches);
-  //     // get launchpad data
-  //     const launchpads = await GetData("launchpads");
-  //     setLaunchpadData(launchpads);
-  //   }
-  //   getData();
-  // }, []);
+  // apiData keeps a copy of the original data from the api call
+  const [apiData, setApiData] = useState({ status: "not set", data: [] });
+  // launchData contains the data for the list of missions to display on search
+  const [launchData, setLaunchData] = useState({
+    status: "not set",
+    data: [],
+  });
+  const [launchpadData, setLaunchpadData] = useState({
+    status: "not set",
+    data: [],
+  });
+
+  useEffect(() => {
+    async function getData() {
+      // get launch data
+      const launches = await GetData("launches");
+      setLaunchData(launches);
+      setApiData(launches);
+      // get launchpad data
+      const launchpads = await GetData("launchpads");
+      setLaunchpadData(launchpads);
+    }
+    getData();
+  }, []);
 
   // search flightnumbers, rocket name, payload id
   const onSubmit = (search) => {
@@ -131,25 +128,31 @@ function Form() {
   };
 
   return (
-    <div className="Form">
-      {launchData &&
-      launchpadData &&
-      launchData.status === "success" &&
-      launchpadData.status === "success" ? (
-        <>
-          <SearchBar
-            onSubmit={onSubmit}
-            apiData={apiData.data}
-            launchpads={launchpadData.data}
-          />
-          <Results numMissions={launchData.data.length} />
-          {launchData.data.map((data, index) => (
-            <Mission key={index} data={data} launchpads={launchpadData.data} />
-          ))}
-        </>
-      ) : (
-        <div id="loading">Loading...</div>
-      )}
+    <div>
+      <div className="Form">
+        {launchData &&
+        launchpadData &&
+        launchData.status === "success" &&
+        launchpadData.status === "success" ? (
+          <>
+            <SearchBar
+              onSubmit={onSubmit}
+              apiData={apiData.data}
+              launchpads={launchpadData.data}
+            />
+            <Results numMissions={launchData.data.length} />
+            {launchData.data.map((data, index) => (
+              <Mission
+                key={index}
+                data={data}
+                launchpads={launchpadData.data}
+              />
+            ))}
+          </>
+        ) : (
+          <div id="loading">Loading...</div>
+        )}
+      </div>
     </div>
   );
 }

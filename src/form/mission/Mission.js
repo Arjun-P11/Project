@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { Link, Switch, Route } from "react-router-dom";
+import Home from "../../Home.js";
+import MissionInfo from "../../MissionInfo.js";
 import "./Mission.scss";
 import Button from "./Button.js";
 
@@ -83,7 +86,22 @@ export default function Mission(props) {
   return (
     <div>
       <div className="mission-container">
-        <img className="image-mission" src={patch} onError={onError} alt=" " />
+        <Link
+          to={{
+            // pathname: `/missionInfo/${flightNumber}`,
+            pathname: `/missionInfo`,
+            state: data,
+          }}
+        >
+          <div className="image-container">
+            <img
+              className="image-mission"
+              src={patch}
+              onError={onError}
+              alt=" "
+            />
+          </div>
+        </Link>
         <div className="mission-content">
           <p>
             <span className="firstline-content">{title}</span>

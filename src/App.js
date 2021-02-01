@@ -1,31 +1,21 @@
 import React, { Component, useRef } from "react";
-import Header from "./header/Header.js";
-
-import Footer from "./footer/Footer.js";
-import Form from "./form/Form.js";
+import { Link, Switch, Route } from "react-router-dom";
+import Home from "./Home.js";
+import MissionInfo from "./MissionInfo.js";
 import "./App.scss";
 
 class App extends Component {
   render() {
-    return <Display />;
+    return (
+      <div>
+        {/* <Home /> */}
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/missionInfo" component={MissionInfo} />
+        </Switch>
+      </div>
+    );
   }
 }
-
-const Display = () => {
-  const formRef = useRef();
-
-  const scrollClick = () => {
-    formRef.current.scrollIntoView({ behavior: "smooth" });
-  };
-  return (
-    <div className="main-container">
-      <Header onClick={scrollClick} />
-      <div ref={formRef}>
-        <Form />
-      </div>
-      <Footer onClick={scrollClick} />
-    </div>
-  );
-};
 
 export default App;

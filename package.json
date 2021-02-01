@@ -44,6 +44,8 @@
     "react-dev-utils": "^6.0.5",
     "react-dom": "^16.5.2",
     "react-headroom": "^3.1.0",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
     "resolve": "1.8.1",
     "sass-loader": "7.1.0",
     "style-loader": "0.23.0",

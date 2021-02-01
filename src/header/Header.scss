@@ -11,6 +11,7 @@
   .image {
     width: 100%;
     object-fit: cover;
+    background: rgba(0, 0, 0, 0.42);
     filter: opacity(42%);
     filter: grayscale(20%);
   }

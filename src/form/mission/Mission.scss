@@ -5,13 +5,16 @@
   background-color: #ffffff;
   padding-top: 1ch;
   border-bottom: 0.1vh solid #d5d9de;
-
-  .image-mission {
-    height: 10ch;
-    width: 10ch;
-    padding-left: 2ch;
-    padding-top: 1ch;
-    margin: 0;
+  .image-container {
+    height: 11ch;
+    width: 11ch;
+    .image-mission {
+      height: 10ch;
+      width: 10ch;
+      padding-left: 1.5ch;
+      padding-top: 1ch;
+      margin: 0;
+    }
   }
   .mission-content {
     display: flex;
@@ -41,10 +44,14 @@
     width: 15%;
   }
   @media screen and (max-width: 700px) {
-    .image-mission {
-      padding-left: 1ch;
-      height: 9ch;
-      width: 9ch;
+    .image-container {
+      height: 10ch;
+      width: 10ch;
+      .image-mission {
+        padding-left: 1ch;
+        height: 9ch;
+        width: 9ch;
+      }
     }
     .mission-content {
       padding-left: 1ch;
