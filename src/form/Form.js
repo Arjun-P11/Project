@@ -77,21 +77,6 @@ const filterData = (search, data, launchpadData) => {
 
 function Form() {
   // apiData keeps a copy of the original data from the api call
-  // const [apiData, setApiData] = useState({
-  //   status: "success",
-  //   data: launches,
-  // });
-  // // launchData contains the data for the list of missions to display on search
-  // const [launchData, setLaunchData] = useState({
-  //   status: "success",
-  //   data: launches,
-  // });
-  // const [launchpadData, setLaunchpadData] = useState({
-  //   status: "success",
-  //   data: launchPads,
-  // });
-
-  // apiData keeps a copy of the original data from the api call
   const [apiData, setApiData] = useState({ status: "not set", data: [] });
   // launchData contains the data for the list of missions to display on search
   const [launchData, setLaunchData] = useState({
@@ -129,16 +114,16 @@ function Form() {
   return (
     <div>
       <div className="Form">
+        <SearchBar
+          onSubmit={onSubmit}
+          apiData={apiData.data}
+          launchpads={launchpadData.data}
+        />
         {launchData &&
         launchpadData &&
         launchData.status === "success" &&
         launchpadData.status === "success" ? (
           <>
-            <SearchBar
-              onSubmit={onSubmit}
-              apiData={apiData.data}
-              launchpads={launchpadData.data}
-            />
             <Results numMissions={launchData.data.length} />
             {launchData.data.map((data, index) => (
               <Mission

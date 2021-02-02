@@ -4,7 +4,7 @@ import space from "../designs/space-photo.jpeg";
 
 function Header(props) {
   return (
-    <div className="box">
+    <header className="box">
       <img className="image" src={space} alt="Header - Space" />
       <button
         className="btn"
@@ -13,7 +13,7 @@ function Header(props) {
       />
       <h1 className="heading"> Discover Space Missions </h1>
       <div className="subtext"> SPACE SAVVY </div>
-    </div>
+    </header>
   );
 }
 

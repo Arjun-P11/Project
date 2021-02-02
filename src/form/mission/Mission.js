@@ -20,6 +20,7 @@ function getButtons(launch) {
     video_link: "Watch Video",
   };
 
+  // remove the buttons that have either no entry or have a null value for the link
   for (let link in launch.links) {
     if (link !== "mission_patch" && launch.links[link]) {
       buttons.push({

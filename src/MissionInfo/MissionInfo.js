@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import YouTube from "./Youtube.js";
 import {
@@ -10,6 +9,7 @@ import {
 import "./MissionInfo.scss";
 
 export default function MissionInfo(props) {
+  // ensure page loads at the top
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -20,6 +20,7 @@ export default function MissionInfo(props) {
   let history = useHistory();
 
   if (!props.location.data) {
+    // if data not passed as props redirect to homepage
     history.push("/");
   } else {
     launchpadName = getLaunchName(
@@ -57,13 +58,6 @@ export default function MissionInfo(props) {
       </div>
     ));
   };
-
-  // Rocket type (core serial?)
-  // Launch site
-  // Payloads
-  //    Payload id/type/mass/orbit
-  // Details
-  // Links
 
   return (
     <div className="missionInfo">
