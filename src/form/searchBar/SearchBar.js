@@ -48,7 +48,7 @@ function SearchBar(props) {
   return (
     <form className="search-container">
       <div className="container-keywords">
-        <label for="keywords" className="search-label">
+        <label htmlFor="keywords" className="search-label">
           Keywords
         </label>
         <input
@@ -61,7 +61,7 @@ function SearchBar(props) {
         />
       </div>
       <div className="container-launch">
-        <label for="launch" className="search-label">
+        <label htmlFor="launch" className="search-label">
           Launch Pad
         </label>
         <select
@@ -83,7 +83,7 @@ function SearchBar(props) {
         </select>
       </div>
       <div className="container-min">
-        <label for="minYear" className="search-label">
+        <label htmlFor="minYear" className="search-label">
           Min Year
         </label>
         <select
@@ -103,7 +103,7 @@ function SearchBar(props) {
         </select>
       </div>
       <div className="container-max">
-        <label for="maxYear" className="search-label">
+        <label htmlFor="maxYear" className="search-label">
           Max Year
         </label>
         <select

@@ -2,30 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Mission.scss";
 import Button from "./Button.js";
-
-// refactor to get this from fetch
-function getLaunchName(launchId, launchPads) {
-  for (let launchPad of launchPads) {
-    if (launchPad.id === launchId) {
-      return launchPad.full_name;
-    }
-  }
-  return "Launch Site not Identified";
-}
-function getTimeString(date) {
-  let [hour, minute] = date.toLocaleTimeString("en-US").split(/:| /);
-  if (hour.length < 2) {
-    hour = "0" + hour;
-  }
-  if (minute.length < 2) {
-    minute = "0" + minute;
-  }
-  return `${hour}:${minute}`;
-}
-function getDateString(date) {
-  const month = date.toLocaleString("default", { month: "long" });
-  return `${date.getDate()} ${month} ${date.getFullYear()}`;
-}
+import {
+  getLaunchName,
+  getTimeString,
+  getDateString,
+} from "./helperFunctions.js";
 
 function getButtons(launch) {
   const buttons = [];
@@ -38,6 +19,7 @@ function getButtons(launch) {
     article_link: "Article",
     video_link: "Watch Video",
   };
+
   for (let link in launch.links) {
     if (link !== "mission_patch" && launch.links[link]) {
       buttons.push({
@@ -51,8 +33,9 @@ function getButtons(launch) {
 
 export default function Mission(props) {
   const data = props.data;
+  const launchpads = props.launchpads;
+
   const patch = data.links.mission_patch;
-  console.log(patch);
   const buttons = getButtons(data);
 
   const rocket_name = data.rocket.rocket_name;
@@ -66,7 +49,7 @@ export default function Mission(props) {
   );
 
   const onError = (e) => {
-    //e.target.style.visibility = "hidden ";
+    //e.target.style.display = "none";
   };
 
   const date = new Date(data.launch_date_local);
@@ -84,22 +67,14 @@ export default function Mission(props) {
   return (
     <div>
       <div className="mission-container">
-        <Link
-          to={{
-            pathname: `/missionInfo/${flightNumber}`,
-            // pathname: `/missionInfo`,
-            state: data,
-          }}
-        >
-          <div className="image-container">
-            <img
-              className="image-mission"
-              src={patch}
-              onError={onError}
-              alt=" "
-            />
-          </div>
-        </Link>
+        <div className="image-container">
+          <img
+            className="image-mission"
+            src={patch}
+            onError={onError}
+            alt=" "
+          />
+        </div>
         <div className="mission-content">
           <p>
             <span className="firstline-content">{title}</span>
@@ -111,6 +86,15 @@ export default function Mission(props) {
             {buttons.map((button, index) => (
               <Button key={index} button={button} />
             ))}
+            <Link
+              to={{
+                pathname: `/missionInfo/${flightNumber}`,
+                data: data,
+                launchpads: launchpads,
+              }}
+            >
+              <Button key="Info" button={{ name: "More Info", link: null }} />
+            </Link>
           </div>
         </div>
         <div className="number-container">

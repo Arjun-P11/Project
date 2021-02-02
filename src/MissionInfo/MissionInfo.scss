@@ -1,0 +1,27 @@
+@import "../App";
+
+.missionInfo {
+  @include font;
+  padding: 2ch 2ch 2ch 2ch;
+  background-color: #f9fafa;
+
+  .heading {
+    font-weight: bold;
+  }
+
+  .text {
+    // color: #363636;
+    color: black;
+  }
+
+  .title {
+    border-bottom: 0.3ch solid black;
+  }
+  .subHeading {
+    text-decoration: underline;
+  }
+
+  .payload {
+    padding-left: 2ch;
+  }
+}

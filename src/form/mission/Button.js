@@ -6,7 +6,9 @@ export default function Button(props) {
     <button
       className="mission-btn"
       aria-label={props.button.name}
-      onClick={() => window.open(props.button.link)}
+      onClick={() =>
+        props.button.link != null ? window.open(props.button.link) : null
+      }
     >
       {props.button.name}
     </button>

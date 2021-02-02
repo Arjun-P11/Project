@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import Home from "./Home.js";
-import MissionInfo from "./MissionInfo.js";
+import MissionInfo from "./MissionInfo/MissionInfo.js";
 import "./App.scss";
 
 class App extends Component {
