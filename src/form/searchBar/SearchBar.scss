@@ -15,21 +15,28 @@
     font-size: 90%;
     border: 0.1vh solid;
     border-color: lightgrey;
-    padding-left: 0.5vw;
+    padding-left: 1ch;
     color: #5a6066;
   }
   ::placeholder {
     color: #bcbcbc;
+    // padding-left: 1ch;
   }
 
   select {
     height: 6ch;
     font-size: 85%;
     border: 0.1vh solid lightgrey;
-    padding-left: 0.5vw;
+    padding-left: 1ch;
     background-color: white;
     color: #5a6066;
-    //-webkit-appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("../../designs/down-chevron.svg");
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: 5ch 2ch;
   }
   .container {
     display: flex;
